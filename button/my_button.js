@@ -29,3 +29,5 @@ class MyButton extends LitElement {
 customElements.define('my-button', MyButton);
 
 // need to add how to render 
+
+const happyYay = "lala"
