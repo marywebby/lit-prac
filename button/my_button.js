@@ -1,4 +1,4 @@
-import {LitElement, html} from 'lit';
+import { LitElement, html, css } from 'lit';
 
 class MyButton extends LitElement {
     static styles = css`
@@ -14,16 +14,18 @@ class MyButton extends LitElement {
  
 
     render() {
-        return html`
+      return html`
           <style>
-             {
-              display: block;
-              margin: 20px;
-            }
+              :host {
+                  display: block;
+                  margin: 20px;
+              }
           </style>
           <button>Sign up</button>
-        `;
-      }
+      `;
+  }
+
 }
 
-customElements.define('button', MyButton);
+customElements.define('my-button', MyButton);
+
