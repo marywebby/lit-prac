@@ -11,18 +11,21 @@ class MyButton extends LitElement {
     static properties = {
         button: {attribute: false},
     };
+ 
 
     render() {
         return html`
           <style>
-            :host {
+             {
               display: block;
               margin: 20px;
             }
           </style>
-          <button>Sign up</button>
+          <button class="button">Sign up</button>
         `;
       }
 }
 
 customElements.define('my-button', MyButton);
+
+// need to add how to render 

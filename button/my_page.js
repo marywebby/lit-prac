@@ -10,3 +10,5 @@ class MyPage extends LitElement {
   }
 }
 customElements.define('my-page', MyPage);
+
+const happy = hello 
