@@ -4,7 +4,7 @@ class MyButton extends LitElement {
     static styles = css`
     * {
       color: blue;
-      font-size: 16px;
+      font-size: 30px;
     }
   `;
 
@@ -21,13 +21,9 @@ class MyButton extends LitElement {
               margin: 20px;
             }
           </style>
-          <button class="button">Sign up</button>
+          <button>Sign up</button>
         `;
       }
 }
 
-customElements.define('my-button', MyButton);
-
-// need to add how to render 
-
-const happyYay = "lala"
+customElements.define('button', MyButton);
