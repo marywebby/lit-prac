@@ -2,13 +2,14 @@ import { html, css, LitElement } from 'lit';
 // lit-element
 
 class MyComp extends LitElement {
-  static styles() {
-    return css`
+
+  // configured diff 
+  static styles =  css`
       .comp {
         color: blue;
       }
     `;
-  }
+  
 
   static properties = {
   };

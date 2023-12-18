@@ -13,7 +13,7 @@ export default {
     name: '<HADLEY ENTER A NAME HERE>',
   },
   preserveSymlinks: true,
-  plugins: [image(), nodeResolve(), commonjs(), css(), terser(), externals({
+  plugins: [nodeResolve(), commonjs(), terser(), externals({
     deps: false,
   })],
 };
