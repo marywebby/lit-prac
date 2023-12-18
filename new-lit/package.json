@@ -1,0 +1,30 @@
+{
+  "name": "new-lit",
+  "version": "1.0.0",
+  "description": "comp",
+  "main": "component.js",
+  "dependencies": {
+    "lit": "^3.1.0",
+    "yarn": "^1.22.21"
+  },
+  "devDependencies": {
+    "@fastify/static": "^6.8.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "fastify": "^4.12.0",
+    "rollup": "^3.14.0",
+    "rollup-plugin-import-css": "^3.1.0",
+    "rollup-plugin-node-externals": "^5.1.2"
+  },
+  "scripts": {
+    "build": "./node_modules/rollup/dist/bin/rollup --watch --bundleConfigAsCjs --config rollup.config.js",
+    "local-dev": "node server.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "author": "mweb",
+  "license": "ISC"
+}
