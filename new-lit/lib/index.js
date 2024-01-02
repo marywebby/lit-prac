@@ -371,27 +371,24 @@ class EmojiHoneycomb extends LitElement {
       });
     }, 100);
 
-    // Hide the arc container when the message example button is clicked
     const arcContainer = this.shadowRoot.querySelector('.arc-container');
-    arcContainer.innerHTML = ''; // Reset arc container content
-    arcContainer.classList.remove('show-arc'); // Hide the arc container
+    arcContainer.innerHTML = ''; 
+    arcContainer.classList.remove('show-arc'); 
   }
 
   handleHoneycombEmojiClick(clickedIndex) {
     const arcContainer = this.shadowRoot.querySelector('.arc-container');
     arcContainer.innerHTML = '';
   
-    // Define arrays for each arc group
     const arcGroups = [
       ['😅', '😅', '😅'],
-      ['😭', '😭', '😭'],
+      ['2', '2', '2'],
       ['3', '3', '3'],
       ['4', '4', '4'],
       ['5', '5', '5'],
       ['6', '6', '6'],
     ];
   
-    // Get the corresponding arc group based on the clicked index
     const selectedArcGroup = arcGroups[clickedIndex - 1];
   
     const arcEmojis = selectedArcGroup.map((emoji, subIndex) => {
@@ -407,27 +404,37 @@ class EmojiHoneycomb extends LitElement {
   
     arcContainer.classList.add('show-arc');
   
-    // Set up the initial positions of arc emojis off-screen
     arcEmojis.forEach((emoji) => {
       emoji.style.transition = 'transform 0.25s ease-in-out; opacity 1s ease-in-out;';
     });
   
-    // Transition the arc emojis to their desired positions
     setTimeout(() => {
+      console.log("hey")
       arcEmojis.forEach((emoji, subIndex) => {
-        const angle = (Math.PI / 3) * subIndex;
-        const distance = subIndex === 1 ? 27 : 25; // Adjust the distances as needed
-        const x = distance * Math.cos(angle) + 23; // Add 10 to shift more northeast
-        const y = -distance * Math.sin(angle) - 37; // Subtract 10 to shift more northeast
+        // based off the clickedIndex not the subindex
+        // adding in the clickedIndex was being overwritten in the .foreach()
+        // console.log('subIndex', subIndex, 'clickedIndex', clickedIndex)
+        const trio_rotation = Math.PI/3 * subIndex;
+        // const parental_rotation = clickedIndex * Math.PI/3;
+        const parental_rotation = ((clickedIndex-2) % 6) * (Math.PI/3)
+        const angle = trio_rotation + parental_rotation;
+
+        // const angle = (Math.PI / 3) * subIndex;
+        const distance = subIndex === 1 ? 27 : 25; 
+        const x = distance * Math.cos(angle) + 23; 
+        const y = -distance * Math.sin(angle) - 37; 
         emoji.style.transform = `translate(${x}px, ${y}px)`;
         emoji.classList.add('visible');
+
+        console.log(trio_rotation)
+        console.log(parental_rotation)
       });
     }, 100);
   }
   
 
   handleArcEmojiClick(clickedArcEmoji) {
-    // Handle clicks on the arc emojis if needed
+
   }
 
   render() {
